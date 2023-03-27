@@ -1,5 +1,7 @@
 # Matrix Completion
 
+## SVD Approach
+
 Consider a $m \times n$ matrix $X$ with missing entries indexed by the set $\Omega = \{(i,j) : i \in \{1,\ldots,m\}, j \in \{1, \ldots, n\}, X_{ij} \text{is missing}\}$. The problem is to find a low-rank approximation of $X$ that is close to $X_{ij}$ for $(i,j)$ corresponding to known values of $X$.
 
 $$ \text{Minimize} \quad rank(M) $$
@@ -25,3 +27,7 @@ $$ X^* \leftarrow P_\Omega(X) + P_\Omega^\perp(A\;B^T) $$
 
 $$ B \leftarrow (X^*)^T A(A^T A+\lambda I)^{-1} $$
 
+Convergence is tested against the relative Frobenius norm between successive values of $X^*$. For computational efficiency the inverse operation is implemented using SVD.
+
+## Reference
+Hastie, Trevor, Rahul Mazumder, Jason D Lee, and Reza Zadeh. 2015. “Matrix Comple- tion and Low-Rank Svd via Fast Alternating Least Squares.” The Journal of Machine Learning Research 16 (1): 3367–3402.
