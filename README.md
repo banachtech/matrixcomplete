@@ -2,10 +2,10 @@
 
 Consider a $m \times n$ matrix $X$ with missing entries indexed by the set $\Omega = \{(i,j) : i \in \{1,\ldots,m\}, j \in \{1, \ldots, n\}, X_{ij} \text{is missing}\}$. The problem is to find a low-rank approximation of $X$ that is close to $X_{ij}$ for $(i,j)$ corresponding to known values of $X$.
 
-\begin{array}{ll}
+$$
 \text{Minimize} \quad &  rank(M) \\
 \text{s.t.} \quad & \sum_{i,j \in \Omega} (X_{ij} - M_{ij})^2 \leq \delta
-\end{array}
+$$
 
 One way is to use a low rank factorization of $M$ to solve:
 
